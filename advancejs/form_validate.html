@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validateform</title>
+  </head>
+  <body>
+    <form id="myform" onsubmit = "return validate();">
+       <input type="text" id="name"  placeholder="name"/><br />
+       <input type="text" id="phone"  placeholder="phone"/><br />
+       <input type="password" id="password"  placeholder="password"/><br />
+      <input type="password" id="confirmPassword" placeholder="confirm password"/><br />
+      <input type="text" id="email"  placeholder="email"/><br />
+      <input type="submit" value="register" />
+    </form>
+    <script>
+      function validate()
+      {
+        var name=document.getElementById("name").value;
+        var name=document.getElementById("phone").value;
+        var password=document.getElementById("password").value;
+        var confirmPassword=document.getElementById("confirmPassword").value;
+        var email=document.getElementById("email").value;
+        var error_message = document.getElementById("error_message");
+  
+  error_message.style.padding = "10px";
+
+        var text;
+         
+        if(name.length < 5){
+    text = "Please Enter valid Name";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(isNaN(phone) || phone.length != 10){
+    text = "Please Enter valid Phone Number";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if (password != confirmPassword){
+    text = "Password must be matched";
+    error_message.innerHTML = text;
+    return false;
+  }
+  if(email.indexOf("@") == -1 || email.length < 6){
+    text = "Please Enter valid Email";
+    error_message.innerHTML = text;
+    return false;
+  }
+ 
+  alert("Form Submitted Successfully!");
+  return true;
+
+
+
+      }
+    </script>
+  </body>
+</html>

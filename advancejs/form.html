@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validateform</title>
+  </head>
+  <body>
+    <form name="myform" onsubmit="return validateform()">
+      Name: <input type="text" name="name" /><br />
+      Password: <input type="password" name="password" /><br />
+      confirmPassword :<input type="password" name="confirmPassword" /><br />
+      Email:<input type="email" name="email" /><br />
+      <input type="submit" value="register" />
+    </form>
+    <script>
+      function validateform() {
+        let name = document.myform.name.value;
+        let password = document.myform.password.value;
+        let confirmPassword = document.myform.confirmPassword.value;
+        let email = document.myform.email.value;
+        let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+        if (name.length < 3) {
+          alert("Name can't be less than 3 character");
+          return false;
+        } else if (password != confirmPassword) {
+          alert("Password must be matched.");
+          return false;
+        }
+        else if(email.match(pattern))
+        {
+            alert("pleas enter valid email")
+        }
+      }
+    </script>
+  </body>
+</html>
